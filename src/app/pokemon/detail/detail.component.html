@@ -1,5 +1,10 @@
+
 <div class="tab-container">
-  <div class="tabs">
+    <div class="back-button">
+        <button type="button" [routerLink]="['/pokemon/list']" class="back-to-list">Back to List</button>
+    </div>
+    
+    <div class="tabs">
     <a
       class="tab"
       (click)="tabselector = 'firsttab'"
