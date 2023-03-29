@@ -1,0 +1,67 @@
+.tabs {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab.activetab {
+    background-color: #ccc;
+    font-weight: 700;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+  .progress-bar progress-bar{
+    height: 10%;
+    margin-bottom: 3px;
+  }
+
+  .parent-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.flex-item {
+    height: auto;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    .caption {
+        display: block;
+        cursor:pointer;
+    }
+    .image {
+        border: 1px grey solid;
+        background: #dfdfdf;
+        cursor:pointer;
+    }
+}

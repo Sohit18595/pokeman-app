@@ -1,0 +1,135 @@
+<div class="tab-container">
+  <div class="tabs">
+    <a
+      class="tab"
+      (click)="tabselector = 'firsttab'; getPokemonDetails(tabselector)"
+      [ngClass]="{ activetab: tabselector == 'firsttab' }"
+      >Stats/Details</a
+    >
+    <a
+      class="tab"
+      (click)="tabselector = 'secondtab'; getPokemonDetails(tabselector)"
+      [ngClass]="{ activetab: tabselector == 'secondtab' }"
+      >Evolutions</a
+    >
+  </div>
+
+  <div class="tabcontent">
+    <div *ngIf="tabselector == 'firsttab'">
+      <div class="parent-flex" *ngIf="pokemon">
+        <div class="flex-item">
+          <img
+            class="card-img-top"
+            src="{{ pokemon.evolvedPokemonAvatar }}"
+            alt="Card image cap"
+          />
+          <h5 class="card-title">
+            <b>{{ pokemon.name | uppercase }}</b>
+          </h5>
+        </div>
+        <div class="flex-item">
+        <div>
+          <label><b>Type: </b></label>
+          <span
+            *ngFor="let type of pokemon.subtypes">
+            {{ type | uppercase }}
+          </span>
+        </div>
+        <div>
+          <label><b>HP : </b></label>
+          <span>
+            {{ pokemon.stats[0].base_stat }}
+          </span>
+        </div>
+        <div>
+          <label><b>Attack : </b></label>
+          <span>{{ pokemon.stats[1].base_stat }}</span>
+        </div>
+        <div>
+          <label><b>Defense : </b></label>
+          <span>{{ pokemon.stats[2].base_stat }}</span>
+        </div>
+        <div>
+          <label><b>Speed : </b></label>
+          <span>{{ pokemon.stats[5].base_stat }}</span>
+        </div>
+        <div>
+          <label><b>Sp Attack : </b></label>
+          <span>{{ pokemon?.stats[3].base_stat }}</span>
+        </div>
+
+        <div>
+          <label><b>Sp Defense : </b></label>
+          <span>{{ pokemon?.stats[4].base_stat }}</span>
+        </div>
+      </div>
+
+      <div class="flex-item">
+        <div>
+          <label><b>Height : </b></label>
+          <span>{{ pokemon.height }}</span>
+        </div>
+        <div>
+          <label><b>Weight : </b></label>
+          <span>{{ pokemon.weight }}</span>
+        </div>
+        <div>
+          <label><b>Egg Groups : </b></label>
+          <span>{{ pokemon.eggGroups }}</span>
+        </div>
+        <div>
+          <label><b>Gender Ratio : </b></label>
+          <span>{{ pokemon.gender_rate }}</span>
+        </div>
+        <div>
+          <label><b>Catch Rate : </b></label>
+          <span>{{ pokemon.capture_rate }}</span>
+        </div>
+        <div>
+          <label><b>Abilities : </b></label>
+          <span>{{ pokemon.abilities }}</span>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div *ngIf="tabselector == 'secondtab'">
+        <div class='evolution' *ngIf='pokemon'>
+            <div class="card m-3">
+              <div class="card-header">
+                <h6>Evolution</h6>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <img class="card-img-top" src= {{pokemon.mainPokemonAvatar}} alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">{{this.pokemonName|uppercase}}</h5>
+                  </div>
+                </div>
+                <div *ngIf="pokemon.evolution.length!=0" class="col-md-4" style="text-align: center;margin: auto;">
+                  <i class="fa fa-arrow-right" aria-hidden="true" style="font-size: 100px"></i>
+                  <div><b>Minimum level required is {{pokemon.evolution[0].min_level}}</b></div>
+                </div>
+                <div *ngIf="pokemon.evolution.length!=0" class="col-md-4">
+                  <img class="card-img-top" src= {{pokemon.evolvedPokemonAvatar}} alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">{{pokemon.evolution[0].species_name|uppercase}}</h5>
+                  </div>
+                </div>
+                <div *ngIf="pokemon.evolution.length==0"class="col md-4" style="text-align: center;margin: auto;">
+                  <b>This is the ultimate form</b>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+<ngx-spinner
+  bdColor="rgba(51, 51, 51, 0.8)"
+  size="default"
+  type="ball-spin-clockwise"
+>
+  <p style="color: white">Please Wait.</p>
+</ngx-spinner>

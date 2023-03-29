@@ -1,0 +1,26 @@
+.parent-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.flex-item {
+    height: auto;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    .caption {
+        display: block;
+        cursor:pointer;
+    }
+    .image {
+        border: 1px grey solid;
+        background: #dfdfdf;
+        cursor:pointer;
+    }
+}
