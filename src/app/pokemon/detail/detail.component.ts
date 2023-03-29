@@ -26,14 +26,6 @@ export class DetailComponent {
     this.getSinglePokemonDetail();
   }
 
-  getPokemonDetails(selectedTab) {
-    if (selectedTab == 'firsttab') {
-      this.getSinglePokemonDetail();
-    }
-    // if (selectedTab == 'secondtab') {
-    //   this.getPokemonEvolutionDetails();
-    // }
-  }
   getSinglePokemonDetail() {
     this.pokemonService.getDetails(this.pokemonId).subscribe((data) => {
       this.pokemonService
@@ -69,18 +61,6 @@ export class DetailComponent {
     
   }
 
-  getEvolutionDetail() {
-    this.pokemonService
-      .getDetails(this.pokemonId)
-      .subscribe((response: any) => {
-        this.pokemonService
-          .getEvolution(response.evolution_chain.url)
-          .subscribe((data) => {
-            this.evolutionData = data;
-            console.log('this.evolutionData', this.evolutionData);
-          });
-      });
-  }
 
   searchPokemon(pokemonName: string) {
     this.pokemonService
